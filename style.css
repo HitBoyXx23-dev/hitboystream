@@ -1,0 +1,130 @@
+body {
+    color: #fff;
+    background-color: #0a0a0a; /* deep black background */
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(135deg, #0a0a0a, #1a0a2c, #000033); /* black → dark purple → dark blue gradient */
+}
+
+header {
+    background-color: #1a0a2c; /* dark purple */
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    display: flex;
+    border-bottom: 2px solid #4b0082; /* purple accent line */
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #cc99ff; /* light purple */
+}
+
+main {
+    padding: 20px;
+}
+
+a {
+    color: #cc99ff; /* light purple links */
+    font-size: 24px;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #7f00ff; /* brighter purple on hover */
+}
+
+#videoGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 600px) {
+    #videoGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 960px) {
+    #videoGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.videoItem {
+    text-align: center;
+    cursor: pointer;
+    background-color: #0a0a0a; /* black */
+    border-radius: 35px;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    box-shadow: 0 4px 15px rgba(75, 0, 130, 0.4); /* purple glow */
+}
+
+.videoItem:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(127, 0, 255, 0.6); /* brighter hover glow */
+}
+
+.thumbnail {
+    width: 95%;
+    height: 0;
+    border-radius: 35px;
+    padding-bottom: 40%;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #4b0082; /* subtle purple border */
+}
+
+.thumbnail img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+h3 {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+p {
+    color: #aaa;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.playIcon {
+    opacity: 0;
+    background-color: rgba(0, 0, 50, 0.8); /* dark blue circle */
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    transition: opacity 0.3s;
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.videoItem:hover .playIcon {
+    opacity: 1;
+}
+
+img.emoji {
+    vertical-align: -0.1em;
+    width: 1em;
+    height: 1em;
+    margin: 0 0.05em 0 0.1em;
+}
