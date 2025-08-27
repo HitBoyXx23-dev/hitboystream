@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0TSYNY53SW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-0TSYNY53SW');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Hitboystream - Settings</title>
+    <meta name="description" content="Honestly, idk">
+
+    <link rel="icon" href="../previews/branding/favicon-128x128.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="../previews/branding/favicon-180x180.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="../previews/branding/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="../previews/branding/favicon-16x16.png"/>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+    <link rel="manifest" href="manifest.json">
+
+     <link rel="stylesheet" href="https://unpkg.com/tippy.js@6.3.4/animations/shift-away-subtle.css">
+    <script src="https://unpkg.com/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6.3.4/dist/tippy-bundle.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slugify@1.6.6/slugify.min.js"></script>
+    <script src="../cachedFetch.js"></script>
+    <script src="../utils.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1><a href="index.html"><img draggable="false" class="emoji" alt="" src="../previews/branding/favicon-128x128.png"> Heartive - Settings</a></h1>
+        </div>
+    </header>
+    <main>
+        <p>I'd say "more settings soon!!" but like what would I even add bro</p>
+        <p>TMDB Image Quality </p><select id="tmdb-image-quality" autocomplete="off">
+            <option value="original">Highest Quality</option>
+            <option value="w500">Medium Quality (Default)</option>
+            <option value="w200">Lowest Quality</option>
+        </select>
+        <p>TMDB Language (does NOT change movie/episode language): </p><select id="tmdb-language" autocomplete="off">
+            <option value="en-US">English</option>
+            <option value="es-MX">Spanish</option>
+            <option value="fr-FR">French</option>
+            <option value="nl-NL">Dutch</option>
+            <option value="pt-PT">Portuguese</option>
+            <option value="tl-PH">Filipino</option>
+            <option value="pl-PL">Polish</option>
+            <option value="ru-RU">Russian</option>
+            <option value="ro-RO">Romanian</option>
+            <option value="de-DE">German</option>
+            <option value="sv-SE">Swedish</option>
+            <option value="he-IL">Hebrew</option>
+            <option value="hi-IN">Hindi</option>
+        </select>
+    </main>
+    <script src="script.js"></script>
+</html>
