@@ -19,33 +19,43 @@ show_id && 0 !== show_id.length && themoviedb(`tv/${show_id}?language=${getTmdbL
 
         d.seasons.filter(e => 0 !== e.season_number).filter(e => !inFuture(e.air_date)).forEach(e => {
             var t = document.createElement("div"),
-                a = (t.classList.add("videoItem"), document.createElement("a")),
-                n = (a.classList.add("thumbnail"),
-                    // <-- updated link
-                    a.setAttribute("href", `view/view.html#${tvSlugify(d.name, d.original_name)}/${show_id}/${e.id}`),
-                    document.createElement("img")),
-                n = (n.loading = "lazy",
-                    n.src = getImage(e.poster_path),
-                    a.appendChild(n),
-                    document.createElement("div")),
-                n = (n.classList.add("playIcon"),
-                    n.innerHTML = "<i class='fas fa-arrow-right-to-bracket'></i>",
-                    a.appendChild(n),
-                    document.createElement("div")),
-                n = (n.classList.add("dateOverlay"),
-                    n.innerText = e.air_date.split("-")[0],
-                    a.appendChild(n),
-                    n.addEventListener("click", e => { e.stopPropagation() }),
-                    document.createElement("h3")),
-                i = (n.innerHTML = oranj(e.season_number + ".") + " " + e.name,
-                    document.createElement("p"));
-            i.innerText = e.overview;
+                a = document.createElement("a");
+            a.classList.add("thumbnail");
+
+            // Updated href to point to view.html dynamically
+            a.setAttribute("href", `https://hitboyxx23-dev.github.io/hitboystream/view/view.html#${tvSlugify(d.name, d.original_name)}/${show_id}/${e.id}`);
+
+            var n = document.createElement("img");
+            n.loading = "lazy";
+            n.src = getImage(e.poster_path);
+            a.appendChild(n);
+
+            var playIcon = document.createElement("div");
+            playIcon.classList.add("playIcon");
+            playIcon.innerHTML = "<i class='fas fa-arrow-right-to-bracket'></i>";
+            a.appendChild(playIcon);
+
+            var dateOverlay = document.createElement("div");
+            dateOverlay.classList.add("dateOverlay");
+            dateOverlay.innerText = e.air_date.split("-")[0];
+            a.appendChild(dateOverlay);
+            dateOverlay.addEventListener("click", ev => { ev.stopPropagation(); });
+
+            var h3 = document.createElement("h3");
+            h3.innerHTML = oranj(e.season_number + ".") + " " + e.name;
+
+            var p = document.createElement("p");
+            p.innerText = e.overview;
+
+            t.classList.add("videoItem");
             t.appendChild(a);
-            t.appendChild(n);
-            t.appendChild(i);
+            t.appendChild(h3);
+            t.appendChild(p);
+
             videoGrid.appendChild(t);
         });
 
+        // Preload season details
         d.seasons.filter(e => 0 !== e.season_number).filter(e => !inFuture(e.air_date)).forEach(e => {
             try {
                 themoviedb(`tv/${show_id}/season/${e.season_number}?language=` + getTmdbLanguage());
