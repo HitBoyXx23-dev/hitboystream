@@ -1,5 +1,5 @@
-// Select the credits container
-const creditsContainer = document.querySelector(".credits-container");
+// Select the surprise button
+const surpriseBtn = document.getElementById("surprise-btn");
 
 // Create a GIF overlay element
 const gifOverlay = document.createElement("div");
@@ -13,17 +13,12 @@ gifOverlay.style.pointerEvents = "none"; // allows clicks through
 gifOverlay.innerHTML = `<img src="https://media1.tenor.com/m/NMK97H67NPgAAAAC/funny.gif" alt="Cool Effect" style="width:300px; border-radius:15px; box-shadow:0 0 20px #000;">`;
 document.body.appendChild(gifOverlay);
 
-// Show GIF when hovering over credits container
-creditsContainer.addEventListener("mouseenter", () => {
+// Show GIF when button is clicked
+surpriseBtn.addEventListener("click", () => {
     gifOverlay.style.display = "block";
-});
 
-creditsContainer.addEventListener("mouseleave", () => {
-    gifOverlay.style.display = "none";
-});
-
-// Optional: make the GIF follow the mouse
-creditsContainer.addEventListener("mousemove", (e) => {
-    gifOverlay.style.top = `${e.clientY}px`;
-    gifOverlay.style.left = `${e.clientX}px`;
+    // Hide the GIF after 3 seconds
+    setTimeout(() => {
+        gifOverlay.style.display = "none";
+    }, 3000);
 });
