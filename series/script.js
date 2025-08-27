@@ -13,7 +13,7 @@ function create(e, t) {
     a.classList.add("videoItem");
     let n = document.createElement("a");
     n.classList.add("thumbnail"),
-    n.setAttribute("href", `../seasons/#/${tvSlugify(e.name, e.original_name)}/` + e.id);
+    n.setAttribute("href", `../seasons/seasons.html#/${tvSlugify(e.name, e.original_name)}/` + e.id);
     var r = document.createElement("img")
       , r = (r.loading = "lazy",
     r.src = getImage(e.poster_path),
