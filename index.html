@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>HitBoyStream</title>
+    <meta name="description" content="Watch shows, movies, live streams, and more on HitBoyStream">
+
+    <!-- Favicon -->
+    <link rel="icon" href="media/branding/favicon-128x128.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="media/branding/favicon-180x180.png"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="media/branding/favicon-32x32.png"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="media/branding/favicon-16x16.png"/>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6.3.4/animations/shift-away-subtle.css">
+
+    <!-- Scripts -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0TSYNY53SW"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-0TSYNY53SW');
+    </script>
+    <script src="https://unpkg.com/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6.3.4/dist/tippy-bundle.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slugify@1.6.6/slugify.min.js"></script>
+    <script src="cachedFetch.js"></script>
+    <script src="themes.css"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>HitBoyStream</h1>
+        </div>
+    </header>
+
+    <main>
+        <div id="videoGrid">
+            <div class="videoItem">
+                <a class="thumbnail" href="series">
+                    <img src="media/homepage/shows.png" alt="Series">
+                    <div class="playIcon"><i class="fas fa-tv"></i></div>
+                </a>
+                <h2><img draggable="false" class="emoji" alt="" src="media/icons/retro-tv.png"> Series</h2>
+            </div>
+            <div class="videoItem">
+                <a class="thumbnail" href="movies">
+                    <img src="media/homepage/movies.gif" alt="Movies">
+                    <div class="playIcon"><i class="fas fa-ticket"></i></div>
+                </a>
+                <h2><img draggable="false" class="emoji" alt="" src="media/icons/cinema-play.png"> Movies</h2>
+            </div>
+            <div class="videoItem">
+                <a class="thumbnail" href="live">
+                    <img src="media/homepage/live.gif" alt="Live">
+                    <div class="playIcon"><i class="fas fa-satellite-dish"></i></div>
+                </a>
+                <h2><img draggable="false" class="emoji" alt="" src="media/icons/live-tv.png"> Live</h2>
+            </div>
+            <div class="videoItem">
+                <a class="thumbnail" href="news">
+                    <img src="media/homepage/news.png" alt="News">
+                    <div class="playIcon"><i class="fas fa-newspaper"></i></div>
+                </a>
+                <h2><img draggable="false" class="emoji" alt="" src="media/icons/news-24.png"> News</h2>
+            </div>
+            <div class="videoItem">
+                <a class="thumbnail" href="settings">
+                    <img src="media/homepage/territory.gif" alt="Settings">
+                    <div class="playIcon"><i class="fas fa-gear"></i></div>
+                </a>
+                <h2><img draggable="false" class="emoji" alt="" src="media/icons/cogwheel.png"> Settings</h2>
+            </div>
+            <div class="videoItem">
+                <a class="thumbnail" href="credits">
+                    <img src="media/homepage/credits.gif" alt="Credits">
+                    <div class="playIcon"><i class="fa-solid fa-circle-question"></i></div>
+                </a>
+                <h2><img draggable="false" class="emoji" alt="" src="media/icons/credits.png"> Credits</h2>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 HitBoyStream. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
