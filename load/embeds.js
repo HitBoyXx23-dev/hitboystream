@@ -3,10 +3,10 @@ var _embeds = (_embeds = [{
     sudo: "Vidora (No Ads)",
     name: "Vidora (No Ads)",
     movie: function(e) {
-        return `https://vidora.su/movie/${e.tmdbId}?colour=dba4b2&autoplay=true&autonextepisode=true&backbutton=https://heartive-us4.pages.dev/&pausescreen=true&logo=https://heartive-us4.pages.dev/previews/branding/favicon-128x128.png`;
+        return `https://vidora.su/movie/${e.tmdbId}?colour=dba4b2&autoplay=true&autonextepisode=true&backbutton=https://hitboyxx23-dev.github.io/hitboystream/&pausescreen=true&logo=`;
     },
     series: function(e) {
-        return `https://vidora.su/tv/${e.tmdbId}/${e.season}/${e.episode}?colour=dba4b2&autoplay=true&autonextepisode=true&backbutton=https://heartive-us4.pages.dev/&pausescreen=true&logo=https://heartive-us4.pages.dev/previews/branding/favicon-128x128.png`;
+        return `https://vidora.su/tv/${e.tmdbId}/${e.season}/${e.episode}?colour=dba4b2&autoplay=true&autonextepisode=true&backbutton=`;
     }
 }, {
     name: "embed.su",
