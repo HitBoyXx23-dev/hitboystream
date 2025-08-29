@@ -20,11 +20,12 @@ function applyGibberish() {
     return word;
   }
 
-  // Helper: convert a text to gibberish words
+  // Helper: convert a text to reversed gibberish words
   function textToGibberish(text) {
     return text
       .split(" ")
-      .map(word => makeGibberishWord(Math.max(2, Math.min(word.length, 8)))) // keep word length reasonable
+      .map(word => makeGibberishWord(Math.max(2, Math.min(word.length, 8))))
+      .map(word => word.split("").reverse().join("")) // reverse each word
       .join(" ");
   }
 
