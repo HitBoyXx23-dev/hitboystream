@@ -25,18 +25,18 @@ const tmdbLanguage = document.getElementById("tmdb-language");
 if (tmdbLanguage) {
   tmdbLanguage.value = getTmdbLanguage();
 
+  // Apply gibberish initially
+  applyGibberish();
+
   tmdbLanguage.addEventListener("change", () => {
     setTmdbLanguage(tmdbLanguage.value);
-    applyGibberish(); // Runs only if dropdown exists on this page
+    applyGibberish(); // Only runs on dropdown change
   });
-
-  // Apply gibberish on page load
-  applyGibberish();
 }
 
 // ====== GIBBERISH LOGIC ======
 function applyGibberish() {
-  if (!tmdbLanguage) return; // Only run if language dropdown exists
+  if (!tmdbLanguage) return; // Only run if dropdown exists
 
   const language = getTmdbLanguage();
 
@@ -55,10 +55,4 @@ function applyGibberish() {
       el.textContent = el.dataset.originalText;
     });
   }
-}
-
-// ====== HANDLE DYNAMIC CONTENT ======
-if (tmdbLanguage) {
-  const observer = new MutationObserver(() => applyGibberish());
-  observer.observe(document.body, { childList: true, subtree: true });
 }
