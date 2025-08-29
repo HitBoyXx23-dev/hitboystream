@@ -17,21 +17,33 @@ if (tmdbQuality) {
     });
 }
 
-// ====== TMDB LANGUAGE DROPDOWN (Settings page only) ======
+// ====== TMDB LANGUAGE STORAGE ======
+function getCurrentLanguage() {
+    return localStorage.getItem("tmdbLanguage") || "en-US"; // default language
+}
+
+function setCurrentLanguage(lang) {
+    localStorage.setItem("tmdbLanguage", lang);
+}
+
+// ====== TMDB LANGUAGE DROPDOWN (Settings Page) ======
 const tmdbLanguage = document.getElementById("tmdb-language");
 
 if (tmdbLanguage) {
-    tmdbLanguage.value = getTmdbLanguage();
+    tmdbLanguage.value = getCurrentLanguage();
 
     tmdbLanguage.addEventListener("change", () => {
-        setTmdbLanguage(tmdbLanguage.value);
+        const lang = tmdbLanguage.value;
+        setCurrentLanguage(lang);
         applyGibberish();
     });
 }
 
 // ====== GIBBERISH LOGIC ======
 function applyGibberish() {
-    if (getTmdbLanguage() === "gb-FZ") {
+    const lang = getCurrentLanguage();
+
+    if (lang === "gb-FZ") {
         // Transform text to gibberish
         document.querySelectorAll("p, h1, h2, h3, h4, h5, h6, span, a").forEach(el => {
             el.dataset.originalText = el.dataset.originalText || el.textContent;
