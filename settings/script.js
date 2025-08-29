@@ -19,37 +19,37 @@ if (tmdbQuality) {
   });
 }
 
-// ====== TMDB LANGUAGE DROPDOWN (Settings page only) ======
+// ====== TMDB LANGUAGE DROPDOWN ======
 const tmdbLanguage = document.getElementById("tmdb-language");
 
 if (tmdbLanguage) {
   tmdbLanguage.value = getTmdbLanguage();
 
-  // Apply gibberish initially if needed
+  // Apply gibberish initially if gi-FZ is selected
   applyGibberish();
 
   tmdbLanguage.addEventListener("change", () => {
     setTmdbLanguage(tmdbLanguage.value);
-    applyGibberish(); // Only runs on dropdown change
+    applyGibberish(); // Reverse words only on gi-FZ
   });
 }
 
-// ====== GIBBERISH LOGIC ======
+// ====== GIBBERISH LOGIC (Reverse Words) ======
 function applyGibberish() {
-  if (!tmdbLanguage) return; // Only run if dropdown exists
+  if (!tmdbLanguage) return;
 
   const language = getTmdbLanguage();
 
-  // Helper: reverse each word in a text
+  // Reverse each word in a string
   function reverseWords(text) {
     return text
       .split(" ")
-      .map(word => word.split("").reverse().join("")) // reverse each word
+      .map(word => word.split("").reverse().join(""))
       .join(" ");
   }
 
-  if (language === "gb-FZ") {
-    // Reverse words for gibberish language
+  if (language === "gi-FZ") {
+    // Apply reverse-words gibberish
     document.querySelectorAll("p, h1, h2, h3, h4, h5, h6, span, a").forEach(el => {
       if (!el.dataset.originalText) el.dataset.originalText = el.textContent;
       el.textContent = reverseWords(el.dataset.originalText);
