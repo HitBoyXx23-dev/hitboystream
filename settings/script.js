@@ -1,12 +1,12 @@
-// Get TMDB quality and language elements
+// Get elements
 let tmdbQuality = document.getElementById("tmdb-image-quality");
 let tmdbLanguage = document.getElementById("tmdb-language");
 
-// Initialize quality and language
+// Initialize values
 tmdbQuality.value = getTmdbImageQuality();
 tmdbLanguage.value = getTmdbLanguage();
 
-// Update TMDB image quality when changed
+// Update TMDB image quality
 tmdbQuality.addEventListener("change", () => {
     let quality = tmdbQuality.value === "w50" ? "w92" : tmdbQuality.value;
     setTmdbImageQuality(tmdbQuality.value);
@@ -17,15 +17,20 @@ tmdbQuality.addEventListener("change", () => {
     });
 });
 
-// Update TMDB language when changed
+// Update TMDB language
 tmdbLanguage.addEventListener("change", () => {
     setTmdbLanguage(tmdbLanguage.value);
 
     if (tmdbLanguage.value === "gb-FZ") {
-        // Reverse words for "gibberish" language
+        // Convert text to gibberish
         document.querySelectorAll("p, h1, h2, h3, h4, h5, h6, span, a").forEach(el => {
             el.dataset.originalText = el.dataset.originalText || el.textContent;
-            el.textContent = el.dataset.originalText.split(" ").reverse().join(" ");
+            el.textContent = el.dataset.originalText
+                .split(" ")
+                .map(word => Array.from({ length: word.length }, () => 
+                    String.fromCharCode(97 + Math.floor(Math.random() * 26))
+                ).join(''))
+                .join(" ");
         });
     } else {
         // Restore original text
